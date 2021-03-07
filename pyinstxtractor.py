@@ -1,5 +1,5 @@
 """
-PyInstaller Extractor v2.0 (Make it more useful)
+PyInstaller Extractor ++ v1.0 (Make it more useful)
 Contributor : Gamous
 E-mail : gamous(at)foxmail(dot)com
 Web    : https://gamous.cn
@@ -10,7 +10,7 @@ original author is not updated it.
 
 CHANGELOG
 ================================================
-Version 2.0 (March 07, 2021)
+Version 1.0 (March 07, 2021)
 -------------------------------------------------
 - Use xdis.magics to get correct pyc magic
 - Add support for Linux ELF
@@ -378,7 +378,7 @@ class PyInstArchive:
                     pycFile.write(data)
                 
                 if not importlib.util.find_spec(destBaseName):
-                    print('[+] {0} maybe user defined'.format(destBaseName))
+                    print('[+] The lib script {0} maybe user defined'.format(destBaseName))
                     fd=open(destName + '.py',"w",encoding='utf8')
                     try:
                         uncompyle6.main.decompile_file(destName + '.pyc',fd)
@@ -403,7 +403,7 @@ def main():
                     arch.close()
                     print('[*] Successfully extracted pyinstaller archive: {0}'.format(sys.argv[1]))
                     print('')
-                    print('You can now use a python decompiler on the pyc files within the extracted directory')
+                    print('You can now find python script what you want in the extracted directory')
                     return
 
             arch.close()
